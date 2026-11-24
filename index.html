@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Авто Сфера · Управленка</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ВХОД -->
+<div id="login-screen" class="screen" style="display:none">
+  <div class="login-wrap">
+    <div class="login-title">Авто Сфера</div>
+    <div class="muted" style="margin-bottom:20px">Управленческая отчётность</div>
+    <form id="login-form" class="stack">
+      <input class="inp" type="email" id="login-email" placeholder="Почта" autocomplete="username" required>
+      <input class="inp" type="password" id="login-pass" placeholder="Пароль" autocomplete="current-password" required>
+      <button class="btn btn-primary" type="submit">Войти</button>
+    </form>
+    <button class="link" id="forgot-btn" type="button">Забыли пароль?</button>
+    <div id="login-msg" class="login-msg"></div>
+  </div>
+</div>
+
+<!-- НЕТ ДОСТУПА -->
+<div id="noaccess-screen" class="screen" style="display:none">
+  <div class="login-wrap">
+    <div class="login-title">Нет доступа</div>
+    <div class="muted" id="noaccess-text" style="margin:10px 0 20px"></div>
+    <button class="btn" data-act="logout">Выйти</button>
+  </div>
+</div>
+
+<!-- ОСНОВНОЙ ЭКРАН -->
+<div id="main-screen" class="screen" style="display:none">
+  <div class="topbar">
+    <div class="topbar-title">Авто Сфера · Управленка</div>
+    <div class="topbar-right">
+      <div id="online-users" class="online"></div>
+      <span class="sync"><span class="sdot sok" id="sdot"></span><span id="slbl">синхронизировано</span></span>
+      <button class="btn btn-sm ed" data-act="trash" id="trash-btn">🗑 Корзина</button>
+      <button class="btn btn-sm ed" data-act="settings">⚙ Настройки</button>
+      <button class="btn btn-sm" data-act="logout" id="logout-btn">Выйти</button>
+    </div>
+  </div>
+  <div id="demo-banner" class="demo-banner" style="display:none">
+    Демо-режим: данные вымышленные и хранятся только в этой вкладке. Firebase ещё не подключён.
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="summary" class="active">Сводка</button>
+    <button data-tab="deals">Сделки</button>
+    <button data-tab="investors">Инвесторы</button>
+    <button data-tab="money">Р/С и долги</button>
+    <button data-tab="months">Помесячно</button>
+  </nav>
+  <div class="wrap" id="view"></div>
+</div>
+
+<div id="modal" class="modal" style="display:none"><div class="modal-box" id="modal-box"></div></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
